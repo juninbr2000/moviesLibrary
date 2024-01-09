@@ -1,0 +1,53 @@
+.collection{
+    width: 93vw;
+    padding: .5em;
+}
+.collection div{
+    padding: .5em;
+    width: 300px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    min-height: 169.7px;
+    border: 1px solid #555;
+}
+.collection h2{
+    background-color: #4444446d;
+    padding: .5em 1em;
+    font-size: 20px;
+    width: 100%;
+}
+.button{
+    padding: .4em 1.8em;
+    border-radius: 20px;
+    border: none;
+    background-color: #444444c0;
+    color: #fefefe;
+    font-weight: bold;
+    margin: .5em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media screen and (min-width: 500px){
+    .collection{
+        width: 525px;
+        margin: .5em auto;
+    }
+    .collection div{
+        width: 500px;
+        height: 284px;
+    }
+}
+@media screen and (min-width: 1000px){
+    .collection{
+        width: 750px;
+    }
+    .collection div{
+        width: 740px;
+        height: 416px;
+    }
+}

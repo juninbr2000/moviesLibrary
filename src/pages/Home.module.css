@@ -1,0 +1,56 @@
+.movies_container{
+    display: flex;
+    overflow-x: auto;
+}
+.movies_container .loading{
+    margin: 3.5em auto;
+}
+.movies_container > div:last-child{
+    margin-right: 5em;
+}
+.movies_container > div:first-child{
+    margin-left: 1em;
+}
+.container{
+    margin-top: 0;
+}
+.title{
+    margin-bottom: .1em;
+    padding-top: .5em;
+    padding-left: .5em;
+}
+.container .loading {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+}
+.circle {
+    fill: none;
+    stroke: #c51010;
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+}
+@keyframes rotate4 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes dash4 {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}
+.container:first-child{margin-top: 0;}

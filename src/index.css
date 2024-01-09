@@ -1,0 +1,81 @@
+*{
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #191919;
+  color: #fefefe;
+  overflow-x: hidden;
+  margin-top: 0;
+}
+
+a{
+  text-decoration: none;
+  color: #da1313;
+  transition: .5s;
+}
+a:hover{
+  color: #a70909;
+}
+
+
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 3px;
+  background-color: #292929;
+}
+::-webkit-scrollbar-track{
+  background-color: #242424;
+}
+.destaquecard{
+  margin-top: 120px;
+  min-height: 240px;
+  padding: 1em 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.destaquecard h3{
+  margin: .5em 0;
+  text-shadow: 2px 2px #191919;
+}
+.destaquecard p{
+  width: 200px;
+  font-size: 10px;
+  text-shadow: 1px 1px #191919;
+}
+.destaquecard a {
+  background-color: #292929;
+  padding: .3em 1em;
+  width: 100px;
+  text-align: center;
+  color: #fefefe;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+  .destaquecard{
+    margin: 0;
+    min-height: 300px;
+  }
+  .destaquecard p{
+    width: 400px;
+    font-size: 15px;
+  }
+  .destaquecard h3{
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 800px) {
+  .destaquecard{
+    min-height: 500px;
+    justify-content: space-around;
+  }
+}

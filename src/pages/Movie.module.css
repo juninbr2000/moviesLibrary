@@ -1,0 +1,184 @@
+.cardmovie{
+    margin-top: 130px;
+    height: 200px;
+    background-image: linear-gradient(#19191970 55%, #191919 85% 105%);
+}
+.cardmovie div{
+    height: 100%;
+}
+.cardmovie .btn{
+    padding: .3em 1em;
+    background-color: #1919196e;
+    margin: .5em .8em;
+    border-radius: 10px;
+    display: inline-block;
+    color: #fefefe;
+    font-weight: bold;
+    text-align: center;
+    transition: all .3s ease;
+}
+.cardmovie .btn:hover{
+    background-color: #191919d2;
+}
+.movie{
+    display: flex;
+    margin: -8em 1em;
+    justify-content: center;
+    align-items: end;
+    height: 180px;
+}
+.image{
+    width: 120px;
+    height: 180px;
+}
+.image img{
+    width: 120px;
+    border-radius: 5px;
+    height: 180px;
+}
+.title{
+    flex: 1;
+}
+.title h2{
+    padding: .5em;
+}
+.title h5{
+    padding: .2em 1em;
+}
+.fast_info{
+    padding: 1em;
+    margin-top: 7.5em;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: .3em;
+}
+.fast_info div{
+    display: flex;
+    gap: 5px;
+    padding: .2em;
+    align-items: center;
+    color: #555;
+}
+.fast_info div svg,.info svg{
+    color: #c51010;
+}
+.info{
+    margin: 0 1em;
+    border-top: 1px solid #555;
+    padding: .7em .5em;
+}
+.info h5{
+    font-size: 17px;
+    font-weight: bold;
+    color: #555;
+}
+.info p{
+    padding: .5em ;
+    font-size: 14px;
+}
+.costs{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 1.5em 1em;
+}
+.company_container{
+    display: flex;
+    align-items: baseline;
+    text-align: center;
+    overflow: auto;
+    background-color: #252525;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+.company{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    margin: 1em 1.8em;
+    color: #555;
+}
+.company img{
+    width: 30px;
+    max-height: 30px;
+}
+.title2{
+    margin: .5em 1em 0;
+}
+.collection{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.collection h5{
+    text-align: left;
+    width: 100%;
+}
+.movie_container{
+    display: flex;
+    overflow: auto;
+    margin-bottom: 1.5em;
+}
+
+.movie_container div:last-child{
+    margin-right: 5em;
+}
+.movie_container div:first-child{
+    margin-left: 1.5em;
+}
+
+@media screen and (min-width: 550px) {
+    .cardmovie{
+        height: 400px;
+        margin: 0;
+    }
+    .movie{
+        margin: -10em 2em;
+    }
+    .image{
+        width: 200px;
+        height: 280px;
+    }
+    .image img{
+        width: 100%;
+        height: 100%;
+    }
+    .title{
+        font-size: 1.5em;
+    }
+    .fast_info{
+        margin: 10em 1em .5em;
+        font-size: 1em;
+    }
+    .info{
+        margin: 1.5em ;
+        padding: 1.5em;
+        font-size: 1.5em;
+    }
+    .const{
+        margin: 2.5em 2em;
+    }
+    .costs p{
+        font-weight: bold;
+        font-size: .8em;
+    }
+    .company_container{
+        margin: 1.5em 1em;
+        overflow: hidden;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .company{
+        width: 80px;
+    }
+    .company img{
+        width: 50px;
+        max-height: 50px;
+    }
+}
