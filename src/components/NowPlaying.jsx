@@ -8,7 +8,6 @@ const NowPlaying = ({destaque}) => {
         background: `url(${imageUrl}${destaque.backdrop_path})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-
     }
 
   return (

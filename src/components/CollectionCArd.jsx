@@ -15,9 +15,9 @@ const CollectionCArd = ({collection}) => {
     const styleBackground = {
         background: `url(${imageUrl}${collection.backdrop_path})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-        margin: ".5em auto 1em",
-        borderRadius: "10px",
+        backgroundSize: "cover",
+        margin: ".2em auto 1em",
+        borderRadius: "5px",
     }
 
   return (

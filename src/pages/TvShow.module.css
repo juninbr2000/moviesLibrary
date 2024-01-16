@@ -1,0 +1,152 @@
+.container{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.card_serie{
+    margin-top: 130px;
+    height: 200px;
+    background-image: linear-gradient(#19191950 55%, #191919 85% 105%);
+}
+.card_serie div{
+    height: 100%;
+    width: 100%;
+}
+.card_serie .btn{
+    padding: .3em 1em;
+    background-color: #1919196e;
+    margin: .5em .8em;
+    border-radius: 10px;
+    display: inline-block;
+    color: #fefefe;
+    font-weight: bold;
+    text-align: center;
+    transition: all .3s ease;
+}
+.card_serie .btn:hover{
+    background-color: #191919d2;
+}
+.serie_container{
+    box-sizing: border-box;
+    padding: 0 1em;
+}
+.serie_container .info{
+    width: 100%;
+    margin: -8em 0;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+.image{
+    width: 110px;
+}
+.image img{
+    width: 110px;
+    border-radius: 5px;
+}
+.names{
+    padding: .5em 1em;
+}
+.names h2{
+    margin-bottom: .5em;
+}
+.fast_info{
+    margin-top: 130px;
+    color: #555;
+    border-bottom: 1px solid;
+    padding: .5em;
+    display: flex;
+    justify-content: space-between;
+}
+.fast_info svg{
+    color: #c51010;
+}
+.fast_info div{
+    display: flex;
+    gap: 3px;
+}
+
+.description{
+    margin-top: 1.5em;
+}
+.description h3{
+    color: #555;
+    margin-bottom: .5em;
+}
+.description svg{
+    color: #c51010;
+}
+.description p{
+    padding: .3em 1em;
+}
+
+.btn2{
+    background-color: #505050;
+    margin: 1em;
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    margin-top: 3em;
+}
+.btn2 h4{
+    width: 100%;
+    line-break: anywhere;
+}
+.btn2 div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fefefe;
+    gap: 10px;
+}
+.btn2 img{
+    width: 20%;
+}
+.btn2:hover{
+    background-color: #606060;
+    color: #dedede;
+}
+.aditional_info{
+
+}
+.aditional_info .fast{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1em;
+}
+.fast div{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+.fast p{
+    font-weight: bold;
+}
+.fast span{
+    font-style: italic;
+}
+.comp_container{
+    display: flex;
+    background-color: #505050;
+    padding: 1em;
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: end;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    gap: 20px;
+}
+.company{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.company img{
+    width: 80px;
+}
+.company p{
+    font-weight: bold;
+    font-style: italic;
+}

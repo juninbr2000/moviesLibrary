@@ -17,6 +17,23 @@ const Movie = () => {
   
   const {id} = useParams()
   const [movie, setMovie] = useState(null)
+  const [hour, setHour] = useState(0)
+  const [mins, setMins] = useState(0)
+
+  const time = (movie) => {
+    if(movie.runtime > 180){
+      setHour(3)
+      setMins( movie.runtime - 180 )
+    } else if(movie.runtime > 120){
+      setHour(2)
+      setMins(movie.runtime - 120)
+    } else if( movie.runtime > 59){
+      setHour(1)
+      setMins(movie.runtime - 60)
+    } else(
+      setMins(movie.runtime)
+    )
+  }
 
   const getMovie = async (url) => {
     const res = await fetch(url)
@@ -24,6 +41,7 @@ const Movie = () => {
     
     setMovie(data)
     console.log(data)
+    time(data)
   }
   
   const [similars, setSimilars] = useState([])
@@ -55,6 +73,7 @@ const Movie = () => {
     const recomendedUrl = `${moviesURL}${id}/recommendations?language=ptbr&${apiKey}`
     
     getRecomendMovies(recomendedUrl)
+
   },[id])
 
   if(!movie) return null
@@ -92,10 +111,10 @@ const Movie = () => {
               <BsCalendar2/>
               <p>{movie.release_date.substring(0, 4)}</p>
             </div>
-            <div>
+            {movie.runtime && <div>
               <BsHourglassSplit />
-              <p>{movie.runtime}min</p>
-            </div>
+              <p>{hour}h {mins}m</p>
+            </div>}
             <div>
               <FaStar />
               <p>{parseInt(movie.vote_average)}</p>
@@ -121,7 +140,7 @@ const Movie = () => {
             
             <div className={styles.company_container}>
             {movie.production_companies && movie.production_companies.map((company) => <div key={company.id} className={styles.company}>
-              <img src={imageUrl + company.logo_path} alt={company.name} />
+              {company.logo_path != null && <img src={imageUrl + company.logo_path} alt={company.name} />}
               <p>{company.name}</p>
             </div>)}
             </div>

@@ -3,9 +3,11 @@ import React from 'react'
 import styles from "./Home.module.css"
 import MovieCard from '../components/MovieCard'
 import NowPlaying from '../components/NowPlaying'
+import { SerieCard } from '../components/SerieCard'
 
 const moviesURL = import.meta.env.VITE_API
 const apiKey = import.meta.env.VITE_API_KEY
+const tvShow = import.meta.env.VITE_TV_SHOW
 
 const Home = () => {
     const getRandom = Math.floor(Math.random() * 20)
@@ -35,6 +37,14 @@ const Home = () => {
         setTopMovies(data.results)
     } 
 
+    const [series, setSeries] = useState([])
+    const getSeries = async (url) => {
+        const res = await fetch(url)
+        const data = await res.json()
+
+        setSeries(data.results)
+    }
+
     useEffect(() => {
         const popularUrl = `${moviesURL}popular?include_adult=false&language=pt-br&${apiKey}`
 
@@ -47,6 +57,10 @@ const Home = () => {
         const comingSoonUrl = `${moviesURL}upcoming?include_adult=false&language=pt-br&${apiKey}`
 
         getComingSoon(comingSoonUrl)
+
+        const seriesUrl = `${tvShow}top_rated?language=pt-br&${apiKey}`
+
+        getSeries(seriesUrl)
 
     }, [])
 
@@ -84,6 +98,15 @@ const Home = () => {
             </svg>}
             {comingSoon.length > 0 && comingSoon.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
 
+        </div>
+
+        <h2 className={styles.title}>Principais series</h2>
+
+        <div className={styles.movies_container}>
+            {series.length === 0 && <svg className={styles.loading} viewBox='25 25 50 50'>
+                <circle r="20" cy="50" cx="50"></circle>
+                </svg>}
+            {series.length > 0 && series.map((serie) => <SerieCard key={serie.id} serie={serie} />)}
         </div>
 
 

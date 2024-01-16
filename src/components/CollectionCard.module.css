@@ -1,10 +1,10 @@
 .collection{
     width: 93vw;
-    padding: .5em;
+    padding: 0;
 }
 .collection div{
     padding: .5em;
-    width: 300px;
+    width: 320px;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
