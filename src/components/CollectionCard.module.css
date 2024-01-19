@@ -1,6 +1,7 @@
 .collection{
     width: 93vw;
     padding: 0;
+    margin: 1em .3em 0;
 }
 .collection div{
     padding: .5em;
@@ -35,7 +36,7 @@
 @media screen and (min-width: 500px){
     .collection{
         width: 525px;
-        margin: .5em auto;
+        margin: .5em 2.5em;
     }
     .collection div{
         width: 500px;

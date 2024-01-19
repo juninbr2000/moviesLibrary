@@ -17,6 +17,7 @@ const Search = () => {
   const [movies, setMovies] = useState([])
   const [series, setSeries] = useState([])
   const [collection, setCollection] = useState([])
+  const [activeCategory, setActiveCategory] = useState("movies")
   const query = searchedParams.get("q")
 
   const getSearchedMovies = async (url) => {
@@ -31,6 +32,7 @@ const Search = () => {
     const data3 = await res.json()
 
     setCollection(data3.results)
+    console.log(data3.results)
   }
 
   const getSeries = async (url) => {
@@ -54,28 +56,65 @@ const Search = () => {
     getSeries(tvUrl)
   },[query])
 
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+  };
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Resultados para: {query}</h2>
-      <div className={styles.collection_container}>
-      {collection.length > 0 && collection.map((collect) =>
-          <CollectionCArd key={collect.id} collection={collect} />
-        )}
+      {collection.length > 0 && <div>
+        <h3>Coleções</h3>
+        <div className={styles.collection_container}>
+          {collection && collection.map((collect) => <CollectionCArd key={collect.id} collection={collect} />)}
+        </div>
+      </div>}
+      <div className={styles.categoryButtons}>
+        <button
+          onClick={() => handleCategoryChange("movies")}
+          className={activeCategory === "movies" ? styles.active : ""}
+        >
+          Filmes
+        </button>
+        <button
+          onClick={() => handleCategoryChange("series")}
+          className={activeCategory === "series" ? styles.active : ""}
+        >
+          Séries
+        </button>
       </div>
-      <h4 className={styles.title}>filmes</h4>
-      <div className={styles.movie_container}>
-      {movies.length === 0 && <svg className={styles.loading} viewBox='25 25 50 50'>
-               <circle r="20" cy="50" cx="50"></circle>
-          </svg>}
-        {movies.length > 0 && movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
-      </div>
-      <h4 className={styles.title}>Series</h4>
-      <div className={styles.movie_container}>
-      {series.length === 0 && <svg className={styles.loading} viewBox='25 25 50 50'>
-               <circle r="20" cy="50" cx="50"></circle>
-          </svg>}
-        {series.length > 0 && series.map((serie) => <SerieCard key={serie.id} serie={serie} />)}
-      </div>
+      {movies.length === 0 && activeCategory === "movies" && (
+        <div className={styles.error}>
+          <h4>Nenhuma filme encontrado</h4>
+          <p>Tente clicar no botão series ou verifique se sua pesquisa esta correta...</p>
+        </div>
+      )}
+      {movies.length > 0 && activeCategory === "movies" && (
+        <div>
+          <h4>Filmes</h4>
+          <div className={styles.resultsContainer}>
+            {movies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        </div>
+      )}
+      {series.length === 0 && activeCategory === "series" && (
+        <div className={styles.error}>
+          <h4>Nenhuma serie encontrada</h4>
+          <p>Tente clicar no botão filmes ou verifique se sua pesquisa esta correta...</p>
+        </div>
+      )}
+      {series.length > 0 && activeCategory === "series" && (
+        <div>
+          <h4>Series</h4>
+          <div className={styles.resultsContainer}>
+            {series.map((serie) => (
+            <SerieCard key={serie.id} serie={serie} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
