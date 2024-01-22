@@ -34,7 +34,9 @@ const Tvshow = () => {
     }
 
     const styletop = {
-        background: `url(${imgUrl}${serie.backdrop_path})`,
+        backgroundImage: `url(${imgUrl}${serie.backdrop_path})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
     }
 
   return (
@@ -73,7 +75,7 @@ const Tvshow = () => {
             </div>}
 
             {serie.homepage != "" && <div>
-                <Link to={serie.homepage} className={styles.btn2}><div>
+                <Link to={serie.homepage} className={styles.btn2} target='_blank'><div>
                     <h4>Site Oficial</h4>
                     {serie.networks && serie.networks.map((ser) => <div key={ser.id}>
                         <p>{ser.name}</p>

@@ -50,13 +50,16 @@
     color: #777;
     margin-top: .8em;
 }
+.categoryButtons .active{
+    background-color: #830000;
+}
    
 @media screen and (min-width: 500px) {
     .container{
         margin: 0;
     }
-    .movie_container{
-        padding: .5em 5em;
+    .resultsContainer{
+        padding: .5em 6em;
         justify-content: start;
     }
     .categoryButtons button{

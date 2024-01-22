@@ -159,8 +159,34 @@
 @media screen and (min-width: 500px) {
     .card_serie{
         margin: 0;
+        height: 300px;
     }    
     .comp_container{
         flex-direction: row;
+    }
+    .serie_container{
+        padding: 0 2em;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .card_serie{
+        height: 400px;
+    }
+    .serie_container{
+        padding: 0 5em;
+    }
+    .serie_container .info{
+        margin-top: -15em;
+        gap: 25px;
+    }
+    .image{
+        width: 180px;
+    }
+    .image img{
+        width: 100%;
+    }
+    .fast_info{
+        justify-content: space-around;
     }
 }
