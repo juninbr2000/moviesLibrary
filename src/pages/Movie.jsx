@@ -40,7 +40,6 @@ const Movie = () => {
     const data = await res.json()
     
     setMovie(data)
-    console.log(data)
     time(data)
   }
   

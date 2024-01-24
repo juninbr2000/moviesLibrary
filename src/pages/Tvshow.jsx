@@ -20,7 +20,6 @@ const Tvshow = () => {
         const data = await res.json()
 
         setSerie(data)
-        console.log(data)
     }
 
     useEffect(() => {
@@ -41,12 +40,12 @@ const Tvshow = () => {
 
   return (
     <div>
-        {serie && <div style={styletop} className={styles.container}>
+        {serie.success != false && <div style={styletop} className={styles.container}>
             <div className={styles.card_serie}>
                 <Link to={"/"} className={styles.btn}>Inicio</Link>
             </div>
         </div>}
-        {serie && <div className={styles.serie_container}>
+        {serie.success != false && <div className={styles.serie_container}>
             <div className={styles.info}>
                 <div className={styles.image}>
                     <img src={`${imgUrl}${serie.poster_path}`} alt='' />
@@ -107,6 +106,12 @@ const Tvshow = () => {
                 </div>
             </div>
 
+        </div>}
+        {serie.success === false && <div className='error'>
+            <h2>404 - Pagina não encontrada</h2>  
+            <p>a pagina que você procura não existe ou pode ter sido removida</p>
+
+            <Link to={"/"}>Inicio</Link>  
         </div>}
     </div>
   )

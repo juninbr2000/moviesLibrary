@@ -26,7 +26,6 @@ const Home = () => {
         const data2 = await res.json()
 
         setPopular(data2.results)
-        console.log(data2.results)
     }
 
     const [topMovies, setTopMovies] = useState([])

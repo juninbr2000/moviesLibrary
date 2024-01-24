@@ -84,3 +84,13 @@ a:hover{
     justify-content: space-around;
   }
 }
+.error{
+  padding: 1em;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+}

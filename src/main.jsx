@@ -11,6 +11,7 @@ import Collection from './pages/Collection.jsx'
 
 import './index.css'
 import Tvshow from './pages/Tvshow.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='serie/:id' element={<Tvshow/>}/>
           <Route path='collection/:id' element={<Collection/>}/>
           <Route path='search' element={<Search/>}/>
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
