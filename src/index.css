@@ -36,21 +36,29 @@ a:hover{
 .destaquecard{
   margin-top: 120px;
   min-height: 240px;
-  padding: 1em 1.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  & .infomovie{
+    width: 100%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  & .imagemovie{
+    display: none;
+  }
 }
-.destaquecard h3{
-  margin: .5em 0;
+.destaquecard div h3{
+  margin: 1.1em 0;
   text-shadow: 2px 2px #191919;
 }
-.destaquecard p{
+.destaquecard div p{
   width: 200px;
   font-size: 10px;
   text-shadow: 1px 1px #191919;
+  margin-bottom: 20px;
 }
-.destaquecard a {
+.destaquecard div a {
   background-color: #292929;
   padding: .3em 1em;
   width: 100px;
@@ -60,7 +68,7 @@ a:hover{
   font-weight: bold;
   transition: all .3s ease;
 }
-.destaquecard a:hover{
+.destaquecard div a:hover{
   color: #da1313;
   background-color: #191919;
 }
@@ -69,19 +77,42 @@ a:hover{
   .destaquecard{
     margin: 0;
     min-height: 300px;
+    & div{
+      & p{
+        font-size: 15px;
+        width: 400px;
+      }
+      & h3{
+        font-size: 1.5em;
+      }
+    }
+    .imagemovie{
+      display: none;
+    }
   }
-  .destaquecard p{
-    width: 400px;
-    font-size: 15px;
-  }
-  .destaquecard h3{
-    font-size: 1.5em;
-  }
+
 }
 @media screen and (min-width: 800px) {
   .destaquecard{
-    min-height: 500px;
-    justify-content: space-around;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .infomovie{
+      justify-content: space-around;
+      background-image: linear-gradient(90deg, #191919, #00000000);
+      height: 400px;
+    }
+    .imagemovie{
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1em;
+      & img{
+      height: 300px;
+      }
+    }
   }
 }
 .error{
@@ -93,4 +124,22 @@ a:hover{
   justify-content: center;
   text-align: center;
   gap: 30px;
+}
+@media screen and (min-width: 1000px) {
+  .destaquecard{
+    padding: 0;
+    & .infomovie{
+      padding-left: 2.5em;
+      width: 50%;
+      background-image: linear-gradient(90deg, #191919 35%, #00000000 100% );
+    }
+    & .imagemovie{
+      width: 50%;
+      margin: 0;
+      & img{
+        box-shadow: 1px 2px 5px 2px #00000063;
+        border-radius: 10px;
+      }
+    }
+  }
 }

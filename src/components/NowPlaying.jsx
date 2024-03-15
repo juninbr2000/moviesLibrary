@@ -12,11 +12,15 @@ const NowPlaying = ({destaque}) => {
 
   return (
     <div style={stylescard} className="destaquecard">
-        <h3>{destaque.title}</h3>
+        <div className="infomovie">
+          <h3>{destaque.title}</h3>
 
-        <p>{destaque.overview}</p>
-
-        <Link to={`/movie/${destaque.id}`}>Ver Mais</Link>
+          <p>{destaque.overview}</p>
+          <Link to={`/movie/${destaque.id}`}>Ver Mais</Link>
+        </div>
+        <div className="imagemovie">
+          <img src={imageUrl + destaque.poster_path} alt={destaque.title} />
+        </div>
     </div>
   )
 }

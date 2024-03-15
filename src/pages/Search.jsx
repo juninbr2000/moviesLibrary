@@ -32,7 +32,6 @@ const Search = () => {
     const data3 = await res.json()
 
     setCollection(data3.results)
-    console.log(data3.results)
   }
 
   const getSeries = async (url) => {
@@ -54,6 +53,8 @@ const Search = () => {
     const tvUrl = `${seriesUrl}?query=${query}&language=pt-br&${apiKey}`
 
     getSeries(tvUrl)
+
+    setActiveCategory("movies")
   },[query])
 
   const handleCategoryChange = (category) => {
