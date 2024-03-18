@@ -41,6 +41,7 @@ const Movie = () => {
     
     setMovie(data)
     time(data)
+    console.log(data)
   }
   
   const [similars, setSimilars] = useState([])
@@ -57,7 +58,6 @@ const Movie = () => {
     const data2 = await res.json()
 
     setRecomend(data2.results)
-    console.log(data2.results)
   }
   
   useEffect(()=>{
