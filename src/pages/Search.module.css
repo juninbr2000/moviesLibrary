@@ -58,9 +58,17 @@
     .container{
         margin: 0;
     }
+    .collection_container{
+        margin: 5px auto;
+        gap: 40px;
+        & div{
+            margin: 15px auto;
+        }
+    }
     .resultsContainer{
         padding: .5em 6em;
-        justify-content: start;
+        justify-content: center;
+        align-items: center;
     }
     .categoryButtons button{
         padding: .8em 7em;

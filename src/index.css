@@ -23,12 +23,13 @@ a:hover{
 
 
 ::-webkit-scrollbar{
-  width: 5px;
+  width: 8px;
   height: 5px;
 }
 ::-webkit-scrollbar-thumb{
   border-radius: 3px;
-  background-color: #292929;
+  background-color: #525252;
+  width: 6px;
 }
 ::-webkit-scrollbar-track{
   background-color: #242424;
@@ -111,6 +112,8 @@ a:hover{
       margin-right: 1em;
       & img{
       height: 300px;
+      border-radius: 5px;
+      box-shadow: 2px 3px 5px #00000063;
       }
     }
   }
