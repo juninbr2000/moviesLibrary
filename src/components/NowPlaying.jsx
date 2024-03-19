@@ -4,6 +4,8 @@ const imageUrl = import.meta.env.VITE_IMG
 
 const NowPlaying = ({destaque}) => {
 
+  console.log(destaque)
+
     const stylescard = {
         background: `url(${imageUrl}${destaque.backdrop_path})`,
         backgroundRepeat: "no-repeat",

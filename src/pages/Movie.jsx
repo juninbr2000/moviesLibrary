@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import {BsGraphUp, BsHourglassSplit, BsWallet2, BsFillFileEarmarkTextFill, BsCalendar2, BsCollection} from "react-icons/bs"
-import {FaStar ,FaArrowCircleLeft} from "react-icons/fa"
+import {FaStar ,FaArrowCircleLeft, FaPlus} from "react-icons/fa"
 
 import { Link } from "react-router-dom"
 
@@ -19,6 +19,7 @@ const Movie = () => {
   const [movie, setMovie] = useState(null)
   const [hour, setHour] = useState(0)
   const [mins, setMins] = useState(0)
+  const [trailers, setTrailers] = useState(null)
 
   const time = (movie) => {
     if(movie.runtime > 180){
@@ -41,7 +42,6 @@ const Movie = () => {
     
     setMovie(data)
     time(data)
-    console.log(data)
   }
   
   const [similars, setSimilars] = useState([])
@@ -53,6 +53,14 @@ const Movie = () => {
   }
 
   const [recomend, setRecomend] = useState ([])
+
+  const getTrailers = async (url) => {
+    const res = await fetch(url)
+    const videos = await res.json()
+
+    setTrailers(videos)
+  }
+
   const getRecomendMovies = async (url) => {
     const res = await fetch(url)
     const data2 = await res.json()
@@ -62,6 +70,9 @@ const Movie = () => {
   
   useEffect(()=>{
     const movieUrl = `${moviesURL}${id}?language=pt-br&${apiKey}`
+
+    const moviesTrailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?language=pt-br&${apiKey}`
+    getTrailers(moviesTrailerUrl)
 
     getMovie(movieUrl)
 
@@ -106,17 +117,22 @@ const Movie = () => {
           </div>
           
           <div className={styles.fast_info}>
-            <div>
-              <BsCalendar2/>
-              <p>{movie.release_date.substring(0, 4)}</p>
+            <div className={styles.geralInfo}>
+              <div>
+                <BsCalendar2/>
+                <p>{movie.release_date.substring(0, 4)}</p>
+              </div>
+              {movie.runtime && <div>
+                <BsHourglassSplit />
+                <p>{hour}h {mins}m</p>
+              </div>}
+              <div>
+                <FaStar />
+                <p>{parseInt(movie.vote_average)}</p>
+              </div>
             </div>
-            {movie.runtime && <div>
-              <BsHourglassSplit />
-              <p>{hour}h {mins}m</p>
-            </div>}
-            <div>
-              <FaStar />
-              <p>{parseInt(movie.vote_average)}</p>
+            <div className={styles.genres_area}>
+              {movie.genres.length > 0 && movie.genres.map((genero) => <div key={genero.id}><p><FaPlus/>{genero.name}</p></div>)}
             </div>
           </div>
 
@@ -135,6 +151,16 @@ const Movie = () => {
                 <h5><BsGraphUp/> Ganho</h5>
                 <p>USD {new Intl.NumberFormat().format(movie.revenue)}</p>
               </div>
+            </div>
+
+            <div className={styles.trailers}>
+              {trailers.results.length > 0 && trailers.results.map((trailer) => <div key={trailer.id}>
+                <iframe src={`https://www.youtube.com/embed/${trailer.key}?si=9KdPBOzU0DhB5rf6&amp;controls=0`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div>
+                  <p className={styles.name}>{trailer.name}</p>
+                  <p><span className={styles.destaque}>Tipo: </span>{trailer.type}</p>
+                </div>
+              </div>)}
             </div>
             
             <div className={styles.company_container}>
