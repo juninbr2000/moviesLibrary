@@ -14,26 +14,37 @@ const imgUrl = import.meta.env.VITE_IMG
 const Tvshow = () => {
 
     const { id } = useParams()
-    const [serie, setSerie] = useState([])
+    const [serie, setSerie] = useState({})
+    const [loading, setLoading] = useState(false)
+    const [temporada, setTemporadas] = useState({})
+    
     const getSeries = async (url) => {
         const res = await fetch(url)
         const data = await res.json()
 
         setSerie(data)
+        console.log(data)
+        
+        setLoading(false)
+        setTemporadas(data.seasons)
+        console.log(temporada)
     }
 
     useEffect(() => {
+        setLoading(true)
         const serieURL = `${serieUrl}${id}?language=pt-br&${apiKey}`
 
         getSeries(serieURL)
     }, [id])
 
-    if(!serie){
-        return null
+    if(loading){
+        return <div>
+            <p>carregando...</p>
+        </div>
     }
 
     const styletop = {
-        backgroundImage: `url(${imgUrl}${serie.backdrop_path})`,
+        backgroundImage: `url(${imgUrl}original/${serie.backdrop_path})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
     }
@@ -48,7 +59,7 @@ const Tvshow = () => {
         {serie.success != false && <div className={styles.serie_container}>
             <div className={styles.info}>
                 <div className={styles.image}>
-                    <img src={`${imgUrl}${serie.poster_path}`} alt='' />
+                    <img src={`${imgUrl}w500/${serie.poster_path}`} alt='' />
                 </div>
                 <div className={styles.names}>
                     <h2>{serie.name}</h2>
@@ -63,7 +74,7 @@ const Tvshow = () => {
                 </div>
                 <div>
                     <BiCalendar/>
-                    <p>Estreiou {serie.first_air_date}</p>
+                    {serie.first_air_date !== "" ? (<p>Estreiou {serie.first_air_date}</p>) : (serie.in_production === true && <p>status: em produção</p>)}
                 </div>
             </div>
 
@@ -72,13 +83,25 @@ const Tvshow = () => {
 
                 <p>{serie.overview}</p>
             </div>}
+            
+            {temporada.length > 0 && temporada.map((temp) => {
+                return(
+                <div key={temp.id} className={styles.season_card}>
+                    <img src={imgUrl+ 'w500/' + temp.poster_path} alt="" />
+                    <div className={styles.season_info}>
+                        <h3>{temp.name}</h3>
+                        <p>{temp.overview}</p>
+                        <p><span>numero de eps:</span> {temp.episode_count}</p>
+                    </div>
+                </div>
+            )})}
 
             {serie.homepage != "" && <div>
                 <Link to={serie.homepage} className={styles.btn2} target='_blank'><div>
                     <h4>Site Oficial</h4>
                     {serie.networks && serie.networks.map((ser) => <div key={ser.id}>
                         <p>{ser.name}</p>
-                        <img src={imgUrl + ser.logo_path} alt="" />
+                        <img src={imgUrl + 'w500/' + ser.logo_path} alt="" />
                     </div>)}   
                 </div></Link>    
             </div>}
@@ -99,7 +122,7 @@ const Tvshow = () => {
                 <div className={styles.comp_container}>
                 {serie.production_companies && serie.production_companies.map((company) => 
                     <div key={company.id} className={styles.company}>
-                        <img src={imgUrl + company.logo_path} alt="" />
+                        <img src={imgUrl + 'w500/' + company.logo_path} alt="" />
                         <p>{company.name}</p>
                     </div>
                 )}

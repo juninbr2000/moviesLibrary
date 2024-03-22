@@ -12,7 +12,7 @@ const MovieCard = ({movie}) => {
         
         <p>{movie.title}</p>        
         </div> ) : (
-        <img src={imageUrl + movie.poster_path} alt={movie.title} />
+        <img src={imageUrl +'w500/'+ movie.poster_path} alt={movie.title} />
         )}
       </Link>
     </div>

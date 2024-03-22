@@ -13,7 +13,7 @@ const CollectionCArd = ({collection}) => {
     }
 
     const styleBackground = {
-        background: `url(${imageUrl}${collection.backdrop_path})`,
+        backgroundImage: `url(${imageUrl}original/${collection.backdrop_path})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         margin: ".2em auto 1em",

@@ -12,7 +12,7 @@ export const SerieCard = ({serie}) => {
     
                 <p>{serie.title}</p>        
             </div> ) : (
-            <img src={imageUrl + serie.poster_path} alt={serie.title} />
+            <img src={imageUrl + 'w500/' + serie.poster_path} alt={serie.title} />
             )}
         </Link>
     </div>

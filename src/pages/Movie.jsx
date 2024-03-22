@@ -20,6 +20,7 @@ const Movie = () => {
   const [hour, setHour] = useState(0)
   const [mins, setMins] = useState(0)
   const [trailers, setTrailers] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const time = (movie) => {
     if(movie.runtime > 180){
@@ -42,6 +43,7 @@ const Movie = () => {
     
     setMovie(data)
     time(data)
+    setLoading(false)
   }
   
   const [similars, setSimilars] = useState([])
@@ -69,6 +71,7 @@ const Movie = () => {
   }
   
   useEffect(()=>{
+    setLoading(true)
     const movieUrl = `${moviesURL}${id}?language=pt-br&${apiKey}`
 
     const moviesTrailerUrl = `https://api.themoviedb.org/3/movie/${id}/videos?language=pt-br&${apiKey}`
@@ -86,10 +89,14 @@ const Movie = () => {
 
   },[id])
 
+  if(loading){
+    return <p>carregando...</p>
+  }
+
   if(!movie) return null
 
   const styleBackground = {
-    background: `url(${imageUrl}${movie.backdrop_path})`,
+    background: `url(${imageUrl}original/${movie.backdrop_path})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center"
@@ -108,7 +115,7 @@ const Movie = () => {
         <div className={styles.container}>
           <div className={styles.movie}>
             <div className={styles.image}>
-              <img src={imageUrl+movie.poster_path} alt={movie.title} />
+              <img src={imageUrl+'w500/'+movie.poster_path} alt={movie.title} />
             </div>
             <div className={styles.title}>
               <h2>{movie.title}</h2>
@@ -154,8 +161,8 @@ const Movie = () => {
             </div>
 
             <div className={styles.trailers}>
-              {trailers.results.length > 0 && trailers.results.map((trailer) => <div key={trailer.id}>
-                <iframe src={`https://www.youtube.com/embed/${trailer.key}?si=9KdPBOzU0DhB5rf6&amp;controls=0`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              {trailers !== null && trailers.results.length > 0 && trailers.results.map((trailer) => <div key={trailer.id}>
+                <iframe src={`https://www.youtube.com/embed/${trailer.key}?si=9KdPBOzU0DhB5rf6&amp;controls=0`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 <div>
                   <p className={styles.name}>{trailer.name}</p>
                   <p><span className={styles.destaque}>Tipo: </span>{trailer.type}</p>
@@ -165,7 +172,7 @@ const Movie = () => {
             
             <div className={styles.company_container}>
             {movie.production_companies && movie.production_companies.map((company) => <div key={company.id} className={styles.company}>
-              {company.logo_path != null && <img src={imageUrl + company.logo_path} alt={company.name} />}
+              {company.logo_path != null && <img src={imageUrl + 'w500/' + company.logo_path} alt={company.name} />}
               <p>{company.name}</p>
             </div>)}
             </div>
