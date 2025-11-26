@@ -1,0 +1,75 @@
+.container{
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.content{
+    background-color: #fefefe20;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.content img{
+    width: 180px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00000030;
+}
+
+.overview{
+    margin-top: 25px;
+    padding: 0 30px;
+    margin-bottom: 50px;
+    text-align: justify;
+    & h3{
+        margin-bottom: 30px;
+        font-size: 1.6em;
+        text-align: center;
+        position: relative;
+    }
+}
+
+.overview h3::after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    border-radius: 10px;
+}
+
+.similarMovies{
+    padding: 20px 0;
+    & h3{
+        padding-left: 25px;
+    }
+}
+.similarMoviesContainer{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    & a{
+        width: 160px;
+        height: auto;
+        & img{
+            width: 100%;
+            border-radius: 10px;
+            margin: 0;
+        }
+    }
+}

@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import App from './App.jsx'
-import Home from './pages/Home.jsx'
-import Movie from './pages/Movie.jsx'
-import Search from './pages/Search.jsx'
-import Collection from './pages/Collection.jsx'
+import Home from './pages/Home/Home.jsx'
+import Movie from './pages/Movie/Movie.jsx'
+import Search from './pages/Search/Search.jsx'
+import Collection from './pages/Collections/Collection.jsx'
 
 import './index.css'
-import Tvshow from './pages/Tvshow.jsx'
+import Tvshow from './pages/Serie/Tvshow.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

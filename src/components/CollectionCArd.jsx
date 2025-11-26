@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './CollectionCard.module.css'
-import { FaArrowAltCircleRight } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ const CollectionCArd = ({collection}) => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         margin: ".2em auto 1em",
-        borderRadius: "5px",
+        borderRadius: "20px",
     }
 
   return (
@@ -27,7 +27,7 @@ const CollectionCArd = ({collection}) => {
 
             <h2>{collection.name}</h2>
 
-            <Link to={`/collection/${collection.id}`} className={styles.button}>Veja mais <FaArrowAltCircleRight /></Link>
+            <Link to={`/collection/${collection.id}`} className={styles.button}>Veja mais <FaArrowRight /></Link>
                     
             
         </div>

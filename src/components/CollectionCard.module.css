@@ -1,54 +1,39 @@
 .collection{
-    width: 93vw;
-    padding: 0;
-    margin: 1em .3em 0;
+    margin-top: 20px;
+    
 }
 .collection div{
-    padding: .5em;
-    width: 320px;
-    background-repeat: no-repeat;
+    height: 200px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: end;
     justify-content: space-between;
-    min-height: 169.7px;
-    border: 1px solid #555;
-}
-.collection h2{
-    background-color: #4444446d;
-    padding: .5em 1em;
-    font-size: 20px;
-    width: 100%;
-}
-.button{
-    padding: .4em 1.8em;
-    border-radius: 20px;
-    border: none;
-    background-color: #444444c0;
-    color: #fefefe;
-    font-weight: bold;
-    margin: .5em;
-    display: flex;
-    align-items: center;
-    gap: 4px;
 }
 
-@media screen and (min-width: 500px){
-    .collection{
-        width: 525px;
-        margin: .5em 2.5em;
-    }
-    .collection div{
-        width: 500px;
-        height: 284px;
-    }
+.collection div h2{
+    font-size: 1em;
 }
-@media screen and (min-width: 1000px){
-    .collection{
-        width: 750px;
-    }
-    .collection div{
-        width: 740px;
-        height: 416px;
-    }
+
+.button{
+    background-color: #fefefe10;
+    padding: 10px 15px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid #555;
+    color: #fefefe;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    align-self: flex-end;
+    transition: all .3s ease;
+}
+
+.button:hover{
+    border-color: var(--primary);
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    background-color: #819fe150;
+    transform: scale(1.02);
 }

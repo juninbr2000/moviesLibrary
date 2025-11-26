@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
-import MovieCard from "../components/MovieCard"
+import MovieCard from "../../components/MovieCard"
 
 const searchUrl = import.meta.env.VITE_SEARCH
 const apiKey = import.meta.env.VITE_API_KEY
@@ -8,8 +8,8 @@ const collectionSearch = import.meta.env.VITE_COLLECTION_SEARCH
 const seriesUrl = import.meta.env.VITE_TV_SHOW_SEARCH
 
 import styles from "./Search.module.css"
-import CollectionCArd from "../components/CollectionCArd"
-import { SerieCard } from "../components/SerieCard"
+import CollectionCArd from "../../components/CollectionCArd"
+import { SerieCard } from "../../components/SerieCard"
 
 const Search = () => {
 
