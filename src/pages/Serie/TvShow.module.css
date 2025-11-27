@@ -1,224 +1,115 @@
 .container{
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.card_serie{
-    margin-top: 130px;
-    height: 200px;
-    background-image: linear-gradient(#19191950 55%, #191919 85% 105%);
-}
-.card_serie div{
-    height: 100%;
-    width: 100%;
-}
-.card_serie .btn{
-    padding: .3em 1em;
-    background-color: #1919196e;
-    margin: .5em .8em;
-    border-radius: 10px;
-    display: inline-block;
-    color: #fefefe;
-    font-weight: bold;
-    text-align: center;
-    transition: all .3s ease;
-}
-.card_serie .btn:hover{
-    background-color: #191919d2;
-}
-.serie_container{
-    box-sizing: border-box;
-    padding: 0 1em;
-}
-.serie_container .info{
-    width: 100%;
-    margin: -8em 0;
-    display: flex;
-    align-items: flex-end;
-    box-sizing: border-box;
-}
-.image{
-    width: 110px;
-}
-.image img{
-    width: 110px;
-    border-radius: 5px;
-}
-.names{
-    padding: .5em 1em;
-}
-.names h2{
-    margin-bottom: .5em;
-}
-.fast_info{
-    margin-top: 130px;
-    color: #555;
-    border-bottom: 1px solid;
-    padding: .5em;
-    display: flex;
-    justify-content: space-between;
-}
-.fast_info svg{
-    color: #c51010;
-}
-.fast_info div{
-    display: flex;
-    gap: 3px;
+    height: 100dvh;
 }
 
-.description{
-    margin-top: 1.5em;
-}
-.description h3{
-    color: #555;
-    margin-bottom: .5em;
-}
-.description svg{
-    color: #c51010;
-}
-.description p{
-    padding: .3em 1em;
+.header{
+    background: linear-gradient(#0E1E34 ,#0f0f0f00);
+    backdrop-filter: blur(30px);
+    width: 100%;
+    min-height: 100dvh;
+    padding-top: 220px;
+    padding-bottom: 40px;
 }
 
-.btn2{
-    background-color: #505050;
-    margin: 1em;
-    padding: 1em;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 5px;
-    margin-top: 3em;
-}
-.btn2 h4{
-    width: 100%;
-    line-break: anywhere;
-}
-.btn2 div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fefefe;
-    gap: 10px;
-}
-.btn2 img{
-    width: 20%;
-}
-.btn2:hover{
-    background-color: #606060;
-    color: #dedede;
-}
-.aditional_info .fast{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1em;
-}
-.fast div{
-    display: flex;
-    justify-content: space-around;
-    width: 40%;
-}
-.fast p{
-    font-weight: bold;
-}
-.fast span{
-    font-style: italic;
-}
-.season_card{
-    display: flex;
-    align-items: center;
-    background-color: #555;
-    border-radius: 10px;
-    gap: 5px;
-    margin-top: 10px;
-}
-.season_card img{
-    width: 120px;
-    border-radius: 10px 0 0 10px;
-}
-.season_card .season_info p{
-    margin-left: 5px;
-    font-size: 13px;
-    border-left: 2px solid #c51010;
-    padding-left: 5px;
-    margin-top: 5px;
-}
-.season_card .season_info p span{
-    font-weight: bold;
-}
-.season_info{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 163px;
-    padding: 5px 10px;
-    box-sizing: border-box;
-    overflow-x: auto;
-}
-.comp_container{
-    display: flex;
-    flex-direction: column;
-    background-color: #505050;
-    padding: 1em;
-    border-radius: 5px;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 2em;
-    gap: 20px;
-    margin: 1em;
-}
-.company{
+.movieDetails{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 24px;
     flex-direction: column;
-}
-.company img{
-    width: 80px;
-}
-.company p{
-    font-weight: bold;
-    font-style: italic;
-}
-
-
-
-
-
-
-
-@media screen and (min-width: 500px) {
-    .card_serie{
-        margin: 0;
-        height: 300px;
-    }    
-    .comp_container{
-        flex-direction: row;
-    }
-    .serie_container{
-        padding: 0 2em;
+    text-align: center;
+    padding: 0 30px;
+    width: 100%;
+    & img{
+        width: 250px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #00000050;
     }
 }
 
-@media screen and (min-width: 750px) {
-    .card_serie{
-        height: 400px;
+.info{
+    width: 100%;
+}
+
+.fastInfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    & svg{
+        color: var(--primary);
     }
-    .serie_container{
-        padding: 0 5em;
+}
+
+.overview{
+    margin-top: 50px;
+    padding: 0 30px;
+    margin-bottom: 50px;
+    text-align: justify;
+    & h3{
+        margin-bottom: 30px;
+        font-size: 1.6em;
+        text-align: center;
+        position: relative;
     }
-    .serie_container .info{
-        margin-top: -15em;
-        gap: 25px;
+}
+
+.overview h3::after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    border-radius: 10px;
+}
+
+.lastEp h3{
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+
+.lastEPContainer{
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    & div{
+        display: flex;
+        margin-top: 20px;
+        gap: 20px;
+        margin-bottom: 30px;
     }
-    .image{
-        width: 180px;
-    }
-    .image img{
-        width: 100%;
-    }
-    .fast_info{
-        justify-content: space-around;
+}
+
+.view{
+    width: 65%;
+}
+
+.adictionalInfo{
+    padding: 30px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;   
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #0E1E34;
+    width: 45%;
+    padding: 20px 5px;
+    & svg{
+        font-size: 1.8em;
+        color: var(--primary);
     }
 }
