@@ -27,9 +27,9 @@ const Tvshow = () => {
         setSerie(data)
         console.log(data)
         
-        setLoading(false)
         setTemporadas(data.seasons)
         console.log(temporada)
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -58,7 +58,7 @@ const Tvshow = () => {
                             <p>{serie.tagline}</p>
 
                             <div className={styles.fastInfo}>
-                                <p><FaRegStar/> {serie.vote_average.toFixed(1)}/ 10</p>
+                                {serie.vote_average && <p><FaRegStar/> {serie.vote_average.toFixed(1)}/ 10</p>}
                                 <p><BiCollection /> {serie.number_of_seasons} Temporadas</p>
                             </div>
                         </div>
@@ -77,6 +77,13 @@ const Tvshow = () => {
                                 <p><strong>Episódio:</strong> {serie.last_episode_to_air.episode_number}</p>
                             </div>
                             <p className={styles.view}>{serie.last_episode_to_air.overview}</p>
+                            <p> disponivel em: {" "}
+                                {new Date(serie.last_episode_to_air.air_date).toLocaleDateString("pt-BR", {
+                                    day: "2-digit",
+                                    month: "short",
+                                    year: "numeric"
+                                })}
+                            </p>
                         </div>
                     </div>}
 
